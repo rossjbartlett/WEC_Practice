@@ -1,0 +1,13 @@
+
+
+.MonthDay{
+    width: 12%;
+    padding: 2% 0% 2% 0%;
+    border: 2px solid black;
+    display: inline-block;
+    
+}
+
+.Grey{
+    background-color: grey;
+}

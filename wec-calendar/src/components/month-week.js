@@ -1,35 +1,49 @@
 import React, {Component } from 'react';
 import MonthDay from './month-day';
 class MonthWeek extends Component {
-generateDays(startDate) {
-    let days = [];
 
-    for(let i = startDate; i < startDate + 7; i++) {
-        days.push(
-            <MonthDay day = {i} />
-        )
-    }
-    return days;
-}
+
+
 
     render() {
         return(
             <div>
-            {this.generateDays(this.props.startDate)}
+            {this.generateDays(this.props.startDate,this.props.isFirstWeek, this.props.startIndex, this.props.isLastWeek, this.props.length)}
             </div>
         )
     }
-<<<<<<< HEAD
 
-    generateDays(startDate){
+    generateDays(startDate,isFirstWeek, startIndex, isLastWeek, length){
         let days = [];
-        for(let i=startDate; i < startDate+7; i++)
+
+        for(let currentDate=0; currentDate < 7; currentDate++)
         {
-            days.push(<MonthDay day = {i}/>);
+
+            if(isFirstWeek){
+                if(currentDate < startIndex ) {
+                    days.push(<MonthDay day = {currentDate + startDate} grey={true}/>);
+                }
+                else {
+                    days.push(<MonthDay day = {currentDate - startIndex + 1}/>);
+                }
+            }
+            else if(isLastWeek){
+                if(currentDate+startDate <= length){
+                    days.push(<MonthDay day = {currentDate+startDate}/>);
+                }
+                else{
+                        days.push(<MonthDay day = {currentDate + startDate - length} grey={true}/>);
+
+                }
+
+            }
+            else{
+                days.push(<MonthDay day = {currentDate + startDate}/>);
+            }
+            
         }
+        return days;
     }
-=======
->>>>>>> 82aa8bf74e189fb00c91b0b818e9d787af762cd4
 }
 
 export default MonthWeek;
