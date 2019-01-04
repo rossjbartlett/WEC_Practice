@@ -14,7 +14,7 @@ class MonthWeek extends Component {
         let days = [];
         for(let i=startDate; i < startDate+7; i++)
         {
-            days.push(<monthDay day = {i}/>);
+            days.push(<MonthDay day = {i}/>);
         }
     }
 }
