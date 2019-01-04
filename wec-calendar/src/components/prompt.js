@@ -22,17 +22,28 @@ class Prompt extends Component {
     }
 
     _onChange(e) {
-        let {name, startTime, length} = e.target;
-        console.log(e);
-        this.setState({name, startTime, length});
+        let data = e.target.value;
+        let id = e.target.id;
+        switch(id) {
+            case 'name':
+                this.setState({name: data});
+                break;
+            case 'startTime':
+                this.setState({startTime: data});
+                break;
+            case 'length':
+                this.setState({length: data});
+                break;
+        }
+        // this.setState({name, startTime, length});
     }
 
     render() {
         return(
         <div>
-            <input type="text" placeholder={this.props.placeholder} className="mm-popup__input" value={this.state.name} onChange={this.onChange} />
-            <input type="text" placeholder={this.props.placeholder} className="mm-popup__input" value={this.state.startTime} onChange={this.onChange} />
-            <input type="text" placeholder={this.props.placeholder} className="mm-popup__input" value={this.state.length} onChange={this.onChange} />
+            <input type="text" placeholder={this.props.placeholder} id="name" className="mm-popup__input" value={this.state.name} onChange={this.onChange} />
+            <input type="text" placeholder={this.props.placeholder} id="startTime" className="mm-popup__input" value={this.state.startTime} onChange={this.onChange} />
+            <input type="text" placeholder={this.props.placeholder} id="length" className="mm-popup__input" value={this.state.length} onChange={this.onChange} />
         
         </div>)
         
