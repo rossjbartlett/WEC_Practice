@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import Month from './components/month.js'
 import Popup from 'react-popup';
+import './components/popup.css'
+
 
 class App extends Component {
   render() {

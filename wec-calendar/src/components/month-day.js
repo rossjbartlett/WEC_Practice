@@ -2,6 +2,7 @@ import React, {Component } from 'react';
 import './month-day.css'
 
 import Popup from 'react-popup';
+import './prompt.js'
 
 class MonthDay extends Component {
 
@@ -9,10 +10,10 @@ class MonthDay extends Component {
      handleClick(e) {
         e.preventDefault();
         
-        Popup.plugins().prompt('', 'Type your event name', function (value) {
-            Popup.alert('You typed: ' + value);
+        Popup.plugins().prompt('', 'Event name', 'Enter Start Time', 'Enter Length', function (data) {
+            Popup.alert('You typed: ' + data);
+            
         });
-
     }
 
 
